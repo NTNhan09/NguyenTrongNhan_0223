@@ -8,5 +8,6 @@ namespace BUS.Folder
 {
     class EmploBUS
     {
+
     }
 }
