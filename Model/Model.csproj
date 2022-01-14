@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Folder\CustomBEL.cs" />
-    <Compile Include="Folder\EmploBEL.cs" />
+    <Compile Include="Folder\DepartmentBEL.cs" />
+    <Compile Include="Folder\EmployeeBEL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

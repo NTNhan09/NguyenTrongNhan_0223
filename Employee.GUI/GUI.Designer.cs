@@ -1,7 +1,7 @@
 ﻿
 namespace Employee.GUI
 {
-    partial class Form1
+    partial class GUI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@ namespace Employee.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btExit = new System.Windows.Forms.Button();
+            this.btEdit = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btNew = new System.Windows.Forms.Button();
             this.dgvHR = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,55 +40,59 @@ namespace Employee.GUI
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbDb = new System.Windows.Forms.DateTimePicker();
             this.CbSex = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbPb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbIdD = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbIdE = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.tbDb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHR)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // btExit
             // 
-            this.button4.Location = new System.Drawing.Point(619, 345);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 64;
-            this.button4.Text = "Thoát";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btExit.Location = new System.Drawing.Point(619, 345);
+            this.btExit.Name = "btExit";
+            this.btExit.Size = new System.Drawing.Size(75, 23);
+            this.btExit.TabIndex = 64;
+            this.btExit.Text = "Thoát";
+            this.btExit.UseVisualStyleBackColor = true;
+            this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
-            // button3
+            // btEdit
             // 
-            this.button3.Location = new System.Drawing.Point(538, 345);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 63;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btEdit.Location = new System.Drawing.Point(538, 345);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(75, 23);
+            this.btEdit.TabIndex = 63;
+            this.btEdit.Text = "Sửa";
+            this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
-            // button2
+            // btDelete
             // 
-            this.button2.Location = new System.Drawing.Point(457, 345);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Xoá";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btDelete.Location = new System.Drawing.Point(457, 345);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(75, 23);
+            this.btDelete.TabIndex = 62;
+            this.btDelete.Text = "Xoá";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // button1
+            // btNew
             // 
-            this.button1.Location = new System.Drawing.Point(376, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 61;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btNew.Location = new System.Drawing.Point(376, 345);
+            this.btNew.Name = "btNew";
+            this.btNew.Size = new System.Drawing.Size(75, 23);
+            this.btNew.TabIndex = 61;
+            this.btNew.Text = "Thêm";
+            this.btNew.UseVisualStyleBackColor = true;
+            this.btNew.Click += new System.EventHandler(this.btNew_Click);
             // 
             // dgvHR
             // 
@@ -104,6 +108,7 @@ namespace Employee.GUI
             this.dgvHR.Name = "dgvHR";
             this.dgvHR.Size = new System.Drawing.Size(683, 280);
             this.dgvHR.TabIndex = 60;
+            this.dgvHR.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHR_RowEnter);
             // 
             // Column1
             // 
@@ -135,13 +140,6 @@ namespace Employee.GUI
             this.Column6.HeaderText = "Đơn vị";
             this.Column6.Name = "Column6";
             // 
-            // tbDb
-            // 
-            this.tbDb.Location = new System.Drawing.Point(397, 7);
-            this.tbDb.Name = "tbDb";
-            this.tbDb.Size = new System.Drawing.Size(200, 20);
-            this.tbDb.TabIndex = 59;
-            // 
             // CbSex
             // 
             this.CbSex.AutoSize = true;
@@ -155,7 +153,7 @@ namespace Employee.GUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(337, 10);
+            this.label5.Location = new System.Drawing.Point(415, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 57;
@@ -181,7 +179,7 @@ namespace Employee.GUI
             // 
             this.tbName.Location = new System.Drawing.Point(215, 7);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(100, 20);
+            this.tbName.Size = new System.Drawing.Size(181, 20);
             this.tbName.TabIndex = 54;
             // 
             // label4
@@ -192,13 +190,6 @@ namespace Employee.GUI
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 53;
             this.label4.Text = "Họ tên";
-            // 
-            // tbIdD
-            // 
-            this.tbIdD.Location = new System.Drawing.Point(50, 33);
-            this.tbIdD.Name = "tbIdD";
-            this.tbIdD.Size = new System.Drawing.Size(100, 20);
-            this.tbIdD.TabIndex = 52;
             // 
             // label2
             // 
@@ -225,29 +216,45 @@ namespace Employee.GUI
             this.label1.TabIndex = 49;
             this.label1.Text = "Mã";
             // 
-            // Form1
+            // cbDepartment
+            // 
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(50, 33);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(100, 21);
+            this.cbDepartment.TabIndex = 82;
+            // 
+            // tbDb
+            // 
+            this.tbDb.Location = new System.Drawing.Point(487, 7);
+            this.tbDb.Name = "tbDb";
+            this.tbDb.Size = new System.Drawing.Size(100, 20);
+            this.tbDb.TabIndex = 83;
+            // 
+            // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 385);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvHR);
             this.Controls.Add(this.tbDb);
+            this.Controls.Add(this.cbDepartment);
+            this.Controls.Add(this.btExit);
+            this.Controls.Add(this.btEdit);
+            this.Controls.Add(this.btDelete);
+            this.Controls.Add(this.btNew);
+            this.Controls.Add(this.dgvHR);
             this.Controls.Add(this.CbSex);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbPb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbIdD);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbIdE);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "GUI";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,10 +263,10 @@ namespace Employee.GUI
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btExit;
+        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btNew;
         private System.Windows.Forms.DataGridView dgvHR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -267,17 +274,17 @@ namespace Employee.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DateTimePicker tbDb;
         private System.Windows.Forms.CheckBox CbSex;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbPb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbIdD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbIdE;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.TextBox tbDb;
     }
 }
 
