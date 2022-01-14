@@ -53,7 +53,7 @@ namespace DAL.Foldel
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("update Employee_0223 set Name = @name, Db = @DateBirth, Gd = @Gender, Pb = @PlaceBirth, IdD = @IdDepartment where Id = @IdEmployee", conn);
+            SqlCommand cmd = new SqlCommand("update Employee_0223 set Name = @name, DateBirth = @DateBirth, Gender = @Gender, PlaceBirth = @PlaceBirth, IdDepartment = @IdDepartment where IdEmployee = @IdEmployee", conn);
             cmd.Parameters.Add(new SqlParameter("@IdEmployee", em.Id));
             cmd.Parameters.Add(new SqlParameter("@Name", em.Name));
             cmd.Parameters.Add(new SqlParameter("@DateBirth", em.Db));
@@ -69,7 +69,7 @@ namespace DAL.Foldel
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("delete Employee_0223 where Id = @IdEmployee", conn);
+            SqlCommand cmd = new SqlCommand("delete Employee_0223 where IdEmployee = @IdEmployee", conn);
             cmd.Parameters.Add(new SqlParameter("@IdEmployee", em.Id));
             cmd.ExecuteNonQuery();
             conn.Close();
